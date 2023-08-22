@@ -7,6 +7,7 @@ import (
 func main() {
 
 	println("Ba dum, tss!")
+
 	println("Ba dum, tss!")
 	println("Ba dum, tss!")
 	println("Ba dum, tss!")
@@ -26,6 +27,12 @@ func a() bool {
 }
 
 func b() bool {
+	fmt.Println("b")
+
+	return true
+}
+
+func c() bool {
 	fmt.Println("b")
 
 	return true
