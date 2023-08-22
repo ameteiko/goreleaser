@@ -19,6 +19,6 @@ jobs:
         with:
           commitlintRulesPath: ".commitlint.js"
           # If the PR contains a single commit, fail if the commit message and the PR title do not match.
-          commitTitleMatch: "false"
+          commitTitleMatch: "true"
           # Disable linting of any commits due to the "Squash Merging" PR workflow.
           ignoreCommits: "yes"
