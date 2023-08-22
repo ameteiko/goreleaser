@@ -10,6 +10,7 @@ func main() {
 	println("Ba dum, tss!")
 	println("Ba dum, tss!")
 	println("Ba dum, tss!")
+	println("Ba dum, tss!")
 
 	println("For a release")
 
@@ -23,14 +24,6 @@ func a() bool {
 
 	return false
 }
-
-
-
-
-
-
-
-
 
 func b() bool {
 	fmt.Println("b")
