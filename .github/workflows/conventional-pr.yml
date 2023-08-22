@@ -9,7 +9,7 @@ on:
       - synchronize
 
 jobs:
-  lint-pr-title:
+  check:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -18,7 +18,3 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           commitlintRulesPath: ".commitlint.js"
-          # If the PR contains a single commit, fail if the commit message and the PR title do not match.
-          commitTitleMatch: "true"
-          # Disable linting of any commits due to the "Squash Merging" PR workflow.
-          ignoreCommits: "yes"
