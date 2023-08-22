@@ -31,17 +31,19 @@ changelog:
   sort: asc
   groups:
     - title: Test suites
-      regexp: '^.*?(T|t)est.*?$'
+      regexp: '^test'
       order: 1
     - title: Documentation
-      regexp: '^(.*?(D|d)ocs.*?)|(.*?(D|d)ocument.*?)$'
+      regexp: '^docs'
+      order: 2
+    - title: Bugfixes
+      regexp: '^fix'
       order: 2
     - title: Features
       order: 0
   filters:
     exclude:
-      - '^docs:'
-#      - '^test'
+#      - '^refactor'
 #      - '^(B|b)ump'
 #      - '^test:'
 
