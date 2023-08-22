@@ -43,7 +43,7 @@ changelog:
       order: 0
   filters:
     exclude:
-#      - '^refactor'
+      - '^refactor'
 #      - '^(B|b)ump'
 #      - '^test:'
 
