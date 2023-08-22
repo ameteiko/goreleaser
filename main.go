@@ -32,6 +32,7 @@ func b2() bool {
 	return true
 }
 
+// doc
 func c1() bool {
 	fmt.Println("b")
 
