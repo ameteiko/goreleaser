@@ -38,7 +38,7 @@ func c() bool {
 	return true
 }
 
-func d() bool {
+func d1() bool {
 	fmt.Println("b")
 
 	return true
