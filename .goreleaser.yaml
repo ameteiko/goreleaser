@@ -31,13 +31,13 @@ changelog:
   sort: asc
   groups:
     - title: Test suites
-      regexp: '^test'
+      regexp: '^.*?test(\([[:word:]]+\))??!?:.+$'
       order: 1
     - title: Documentation
-      regexp: '^docs'
+      regexp: '^.*?docs(\([[:word:]]+\))??!?:.+$'
       order: 2
     - title: Bugfixes
-      regexp: '^fix'
+      regexp: '^.*?fix(\([[:word:]]+\))??!?:.+$'
       order: 3
     - title: Features
       order: 0
