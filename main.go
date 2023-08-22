@@ -44,3 +44,4 @@ func d1() bool {
 
 	return true
 }
+
