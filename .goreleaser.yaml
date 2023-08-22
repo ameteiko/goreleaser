@@ -38,7 +38,7 @@ changelog:
       order: 2
     - title: Bugfixes
       regexp: '^fix'
-      order: 2
+      order: 3
     - title: Features
       order: 0
   filters:
