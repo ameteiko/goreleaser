@@ -31,3 +31,9 @@ func b() bool {
 
 	return true
 }
+
+func c() bool {
+	fmt.Println("b")
+
+	return true
+}
