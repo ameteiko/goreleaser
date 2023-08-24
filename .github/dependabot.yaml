@@ -9,7 +9,6 @@ updates:
       prefix: "chore(dependabot)"
       include: "scope"
 
-
   - package-ecosystem: "gomod"
     directory: "/"
     schedule:
