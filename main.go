@@ -2,6 +2,8 @@ package main
 
 import (
 	"fmt"
+
+	_ "k8s.io/apimachinery"
 )
 
 func main() {
@@ -15,7 +17,7 @@ func main() {
 
 	println("For a release")
 
-	if a() && b() {
+	if a() && a() {
 		fmt.Println("a && b")
 	}
 }
@@ -44,4 +46,3 @@ func d1() bool {
 
 	return true
 }
-
