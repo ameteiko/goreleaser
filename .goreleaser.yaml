@@ -44,10 +44,10 @@ changelog:
       order: 4
     - title: Features
       order: 0
-    filters:
-      exclude:
-        - '^.*?chore(\([[:word:]]+\))??!?:.+$'
-        - '^(B|b)ump'
+  filters:
+    exclude:
+      - '^.*?chore(\([[:word:]]+\))??!?:.+$'
+      - '^(B|b)ump'
 
 # The lines beneath this are called `modelines`. See `:help modeline`
 # Feel free to remove those if you don't want/use them.
