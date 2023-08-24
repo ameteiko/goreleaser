@@ -1,4 +1,4 @@
-module goreleaser
+module github.com/ameteiko/goreleaser
 
 go 1.20
 
