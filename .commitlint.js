@@ -6,7 +6,7 @@ module.exports = {
         "subject-full-stop": [2, "never", "."],
         "subject-max-length": [2, "always", "120"],
         "subject-min-length": [2, "always", "5"],
-        "type-enum": [2, "always", ['feat', 'fix', 'docs', 'style', 'refactor', 'test', 'revert']],
+        "type-enum": [2, "always", ['feat', 'fix', 'docs', 'style', 'refactor', 'test', 'revert', 'deps', 'chore']],
         "type-case": [2, "always", "lower-case"],
     }
 }
