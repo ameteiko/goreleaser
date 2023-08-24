@@ -12,3 +12,5 @@ func Render() {
 	fmt.Println(yaml.ScalarNode)
 
 }
+
+func a() {}
