@@ -2,4 +2,4 @@ module main
 
 go 1.20
 
-require k8s.io/apimachinery v0.27.3
+require github.com/google/uuid v1.3.0

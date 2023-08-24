@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	_ "k8s.io/apimachinery"
+	"github.com/google/uuid"
 )
 
 func main() {
@@ -16,6 +16,8 @@ func main() {
 	println("Ba dum, tss!")
 
 	println("For a release")
+
+	fmt.Println(uuid.New().String())
 
 	if a() && a() {
 		fmt.Println("a && b")
