@@ -30,22 +30,24 @@ snapshot:
 changelog:
   sort: asc
   groups:
-    - title: Test suites
-      regexp: '^.*?test(\([[:word:]]+\))??!?:.+$'
+    - title: Bug fixes
+      regexp: '^.*?fix(\([[:word:]]+\))??!?:.+$'
       order: 1
+    - title: Dependencies
+      regexp: '^.*?deps(\([[:word:]]+\))??!?:.+$'
+      order: 2
     - title: Documentation
       regexp: '^.*?docs(\([[:word:]]+\))??!?:.+$'
-      order: 2
-    - title: Bugfixes
-      regexp: '^.*?fix(\([[:word:]]+\))??!?:.+$'
       order: 3
+    - title: Test suites
+      regexp: '^.*?test(\([[:word:]]+\))??!?:.+$'
+      order: 4
     - title: Features
       order: 0
-  filters:
-    exclude:
-      - '^refactor'
-#      - '^(B|b)ump'
-#      - '^test:'
+    filters:
+      exclude:
+        - '^.*?chore(\([[:word:]]+\))??!?:.+$'
+        - '^(B|b)ump'
 
 # The lines beneath this are called `modelines`. See `:help modeline`
 # Feel free to remove those if you don't want/use them.
