@@ -25,5 +25,4 @@ jobs:
             fix
             test
           requireScope: false
-          # https://regex101.com/r/iVaa6K/1
-          subjectPattern: [ A-Z ].*[^.]
+          subjectPattern: .*
