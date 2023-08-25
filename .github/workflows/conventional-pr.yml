@@ -24,6 +24,6 @@ jobs:
             feat
             fix
             test
-          requireScope: fals
+          requireScope: false
           # https://regex101.com/r/iVaa6K/1
           subjectPattern: ^[A-Z].*[^.]$
