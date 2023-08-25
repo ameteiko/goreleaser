@@ -26,4 +26,4 @@ jobs:
             test
           requireScope: fals
           # https://regex101.com/r/iVaa6K/1
-          subjectPattern: '[A-Z].*[^.]'
+          subjectPattern: ^[A-Z].*[^.]$
