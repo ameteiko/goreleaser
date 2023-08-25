@@ -10,7 +10,7 @@ on:
 
 jobs:
   check:
-    name: Validate PR title
+    name: Check Title
     runs-on: ubuntu-latest
     steps:
       - uses: amannn/action-semantic-pull-request@v5
@@ -24,5 +24,6 @@ jobs:
             feat
             fix
             test
-          requireScope: false
-          subjectPattern: .*
+          requireScope: fals
+          # https://regex101.com/r/iVaa6K/1
+          subjectPattern: '[ A-Z ].*[^.]'
