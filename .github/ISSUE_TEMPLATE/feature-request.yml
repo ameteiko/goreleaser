@@ -25,6 +25,14 @@ body:
       placeholder: Type the feature reasoning here.
     validations:
       required: true
+  - type: textarea
+    id: acceptance-criteria
+    attributes:
+      label: Acceptance Criteria
+      description: List the acceptance criteria for the issue.
+      placeholder: Type the acceptance criteria here.
+    validations:
+      required: true
   - type: dropdown
     id: test-suites
     attributes:
