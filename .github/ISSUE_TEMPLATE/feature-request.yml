@@ -1,15 +1,14 @@
-name: Bug Report
-description: File a bug report
-title: "[Bug]: "
-labels: ["bug", "triage"]
-projects: ["octo-org/1", "octo-org/44"]
-assignees:
-  - octocat
+name: Feature Request
+description: New feature request
+title: ""
+labels: ["kind/feature"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to fill out this bug report!
+        Thank you for your contribution. Before you submit the issue:
+        1. Search open and closed issues for duplicates.
+        2. Read the contributing guidelines.
   - type: input
     id: contact
     attributes:
