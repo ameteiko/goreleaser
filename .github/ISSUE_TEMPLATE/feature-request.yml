@@ -47,16 +47,10 @@ body:
         - E2E tests
         - Smoke test
   - type: textarea
-    id: logs
+    id: attachments
     attributes:
-      label: Relevant log output
-      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
-      render: shell
-  - type: checkboxes
-    id: terms
-    attributes:
-      label: Code of Conduct
-      description: By submitting this issue, you agree to follow our [Code of Conduct](https://example.com)
-      options:
-        - label: I agree to follow this project's Code of Conduct
-          required: true
+      label: Attachments
+      description: Attach any files, links, code samples, or screenshots that will convince us to your idea.
+      placeholder: Put your attachments in here.
+    validations:
+      required: false
