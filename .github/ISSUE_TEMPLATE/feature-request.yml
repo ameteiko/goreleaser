@@ -14,7 +14,7 @@ body:
     attributes:
       label: Description
       description: Provide a clear and concise description of the feature.
-      placeholder: Type the feature description here.
+      placeholder: Type a feature description here.
     validations:
       required: true
   - type: textarea
@@ -22,36 +22,36 @@ body:
     attributes:
       label: Reasons
       description: Explain why we should add this feature. Provide use cases to illustrate its benefits.
-      placeholder: Type the feature reasoning here.
+      placeholder: Type a feature reasoning here.
     validations:
-      required: true
+      required: false
   - type: textarea
     id: acceptance-criteria
     attributes:
       label: Acceptance Criteria
-      description: List the acceptance criteria for the issue.
+      description: List acceptance criteria for the issue.
       value: |
-       - [ ] Acceptance Criterion #1
-       - [ ] Acceptance Criterion #2
+       - [ ] Acceptance criterion 1
+       - [ ] Acceptance criterion 2
     validations:
       required: true
   - type: dropdown
     id: test-suites
     attributes:
-      label: Which tests should be introduced?
+      label: Feature Testing
       multiple: true
       options:
         - Unit tests
         - Integration tests
-        - E2E tests
+        - End-to-End tests
         - Smoke test
-        - Performance test
+        - Performance tests
   - type: textarea
-    id: testing
+    id: testing-approach
     attributes:
       label: Testing approach
-      description: Describe the testing approach for the feature.
-      placeholder: Type the testing approach in here.
+      description: Describe a testing approach for the feature.
+      placeholder: Type a testing approach description here.
     validations:
       required: false
   - type: textarea
