@@ -39,15 +39,15 @@ body:
     validations:
       required: true
   - type: dropdown
-    id: browsers
+    id: Tests
     attributes:
-      label: What browsers are you seeing the problem on?
+      label: Which tests should be introduced?
       multiple: true
       options:
-        - Firefox
-        - Chrome
-        - Safari
-        - Microsoft Edge
+        - Unit tests
+        - Integration tests
+        - E2E tests
+        - Smoke test
   - type: textarea
     id: logs
     attributes:
