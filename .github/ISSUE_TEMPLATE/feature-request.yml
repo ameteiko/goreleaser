@@ -26,7 +26,7 @@ body:
     validations:
       required: true
   - type: dropdown
-    id: Test Suites
+    id: test-suites
     attributes:
       label: Which tests should be introduced?
       multiple: true
