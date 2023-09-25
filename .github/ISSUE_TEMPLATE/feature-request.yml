@@ -25,6 +25,17 @@ body:
       placeholder: Type the feature reasoning here.
     validations:
       required: true
+  - type: checkboxes
+    id: tests
+    attributes:
+      label: Test suites?
+      description: Select all relevant test suites.
+      options:
+        - label: Unit
+          required: false
+        - label: Integration
+        - label: E2E
+        - label: Smoke
   - type: dropdown
     id: version
     attributes:
@@ -36,6 +47,14 @@ body:
       default: 0
     validations:
       required: true
+  - type: textarea
+    id: testing
+    attributes:
+      label: Testing approach
+      description: Describe the testing approach for the feature.
+      placeholder: Type the testing approach in here.
+    validations:
+      required: false
   - type: dropdown
     id: Tests
     attributes:
