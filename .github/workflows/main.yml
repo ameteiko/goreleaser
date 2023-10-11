@@ -23,6 +23,10 @@ jobs:
           repository: pandas/coverage-metrics
           path: scripts
           token: ${{secrets.SAPGITHUBTOOLSPAT}}
+
+      - name: LS
+        run: |
+          ls ${{ github.workspace }} && la -la ${{ github.workspace }}/scripts
       - name: Prepare the highlighter utility
         run: |
           chmod a+x $highlighter
