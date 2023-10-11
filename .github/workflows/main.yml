@@ -20,7 +20,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           github-server-url: https://github.tools.sap
-          repository: pandas/knowledge-base
+          repository: pandas/coverage-metrics
           path: scripts
           token: ${{secrets.SAPGITHUBTOOLSPAT}}
       - name: Prepare the highlighter utility
