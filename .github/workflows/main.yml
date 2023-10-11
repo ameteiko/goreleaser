@@ -11,11 +11,11 @@ jobs:
   generate-report:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out report colouriser utility code
+      - name: Check out source code
         uses: actions/checkout@v4
         with:
           repository: 'kyma-project/lifecycle-manager'
-      - name: Check out report colouriser utility code
+      - name: Check out report colouriser
         uses: actions/checkout@v4
         with:
           repository: 'ameteiko/impetus_core'
