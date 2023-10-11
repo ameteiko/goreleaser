@@ -15,14 +15,15 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: 'kyma-project/lifecycle-manager'
+          path: 'scripts'
       - name: Check out remote repo
         run: |
-          git version
-      - name: Check out report highlighter
-        uses: actions/checkout@v4
-        with:
-          repository: 'ameteiko/impetus_core'
-          path: 'scripts'
+          clone https://${{secrets.SAPGITHUBTOOLSPAT}}@https://github.tools.sap/pandas/coverage-metrics.git
+      # - name: Check out report highlighter
+      #   uses: actions/checkout@v4
+      #   with:
+      #     repository: 'ameteiko/impetus_core'
+      #     path: 'scripts'
       - name: Prepare the highlighter utility
         run: |
           chmod a+x $highlighter
