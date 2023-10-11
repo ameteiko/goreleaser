@@ -1,4 +1,4 @@
-name: Run Report
+name: "Report :: AC"
 run-name: ${{ github.actor }} is testing out GitHub Actions Report 🚀
 on: workflow_dispatch
 jobs:
