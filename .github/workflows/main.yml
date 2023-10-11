@@ -26,7 +26,7 @@ jobs:
           path: 'scripts'
       - name: List files in the repository
         run: |
-          ls ${{ github.workspace }} && ls -la ${{ github.workspace }}/scripts
+          ls ${{ github.workspace }} && chmod a+x ${{ github.workspace }}/scripts/colourise.py && ls -la ${{ github.workspace }}/scripts
       - name: Genarate a report
-        run: cd ${{ github.workspace }}/tests/e2e_test && make e2e-coverage
+        run: cd ${{ github.workspace }}/tests/e2e_test && make e2e-coverage | ${{ github.workspace }}/scripts/colourise.py
       
