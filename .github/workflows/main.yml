@@ -24,7 +24,7 @@ jobs:
           github-server-url: https://github.tools.sap
           repository: pandas/coverage-metrics
           path: scripts
-          token: ${{secrets.SAPGITHUBTOOLSPAT}}
+          token: ${{secrets.SAP_GITHUBTOOLS_PAT}}
       - name: Prepare the highlighter utility
         run: |
           chmod a+x $highlighter
