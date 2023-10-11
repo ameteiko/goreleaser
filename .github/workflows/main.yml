@@ -1,10 +1,13 @@
 name: Report Acceptance Criteria
 run-name: Generate AC coverage report
 
+# The report generation is performed ad hoc via manual invocation.
 on: workflow_dispatch
 
 env:
   glossaryURL: https://github.com/ameteiko/goreleaser/wiki/Glossary.md
+  # The report highlighter utility that is checked out from the 
+  # https://github.tools.sap/pandas/coverage-metrics/blob/main/bin/utils/report-highlighter/highlighter.py
   highlighter: ${{ github.workspace }}/scripts/bin/utils/report-highlighter/highlighter.py
 
 jobs:
@@ -22,10 +25,6 @@ jobs:
           repository: pandas/coverage-metrics
           path: scripts
           token: ${{secrets.SAPGITHUBTOOLSPAT}}
-
-      - name: LS
-        run: |
-          ls ${{ github.workspace }} && ls -la ${{ github.workspace }}/scripts
       - name: Prepare the highlighter utility
         run: |
           chmod a+x $highlighter
