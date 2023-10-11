@@ -5,6 +5,7 @@ on: workflow_dispatch
 
 env:
   glossaryURL: https://github.com/ameteiko/goreleaser/wiki/Glossary.md
+  colouriser: ${{ github.workspace }}/scripts/colourise.py
 
 jobs:
   generate-report:
@@ -21,7 +22,7 @@ jobs:
           path: 'scripts'
       - name: Prepare the colouriser utility
         run: |
-          chmod a+x ${{ github.workspace }}/scripts/colourise.py
+          chmod a+x $colouriser
       - name: Genarate a report
-        run: cd ${{ github.workspace }}/tests/e2e_test && make e2e-coverage | ${{ github.workspace }}/scripts/colourise.py $glossaryURL
+        run: cd ${{ github.workspace }}/tests/e2e_test && make e2e-coverage | $colouriser $glossaryURL
       
