@@ -21,3 +21,6 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+      - name: Genarate a report
+        run: cd ${{ github.workspace }}/tests/e2e_test && make e2e-coverage
+      
