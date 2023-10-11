@@ -5,7 +5,7 @@ on: workflow_dispatch
 
 env:
   glossaryURL: https://github.com/ameteiko/goreleaser/wiki/Glossary.md
-  colouriser: ${{ github.workspace }}/scripts/colourise.py
+  highlighter: ${{ github.workspace }}/scripts/bin/utils/report-highlighter/highlighter.py
 
 jobs:
   generate-report:
@@ -15,14 +15,14 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: 'kyma-project/lifecycle-manager'
-      - name: Check out report colouriser
+      - name: Check out report highlighter
         uses: actions/checkout@v4
         with:
           repository: 'ameteiko/impetus_core'
           path: 'scripts'
-      - name: Prepare the colouriser utility
+      - name: Prepare the highlighter utility
         run: |
-          chmod a+x $colouriser
+          chmod a+x $highlighter
       - name: Genarate a report
-        run: cd ${{ github.workspace }}/tests/e2e_test && make e2e-coverage | $colouriser $glossaryURL
+        run: cd ${{ github.workspace }}/tests/e2e_test && make e2e-coverage | $highlighter $glossaryURL
       
