@@ -15,7 +15,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: kyma-project/lifecycle-manager
-          path: scripts
       - name: Check out report highlighter
         uses: actions/checkout@v4
         with:
