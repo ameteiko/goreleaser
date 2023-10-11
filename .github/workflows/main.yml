@@ -26,7 +26,7 @@ jobs:
 
       - name: LS
         run: |
-          ls ${{ github.workspace }} && la -la ${{ github.workspace }}/scripts
+          ls ${{ github.workspace }} && ls -la ${{ github.workspace }}/scripts
       - name: Prepare the highlighter utility
         run: |
           chmod a+x $highlighter
