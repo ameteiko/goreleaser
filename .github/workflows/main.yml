@@ -15,6 +15,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: 'kyma-project/lifecycle-manager'
+      - name: Check out remote repo
+        run: |
+          git version
       - name: Check out report highlighter
         uses: actions/checkout@v4
         with:
