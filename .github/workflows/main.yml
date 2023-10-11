@@ -17,7 +17,7 @@ jobs:
         with:
           # Repository name with owner. For example, actions/checkout
           # Default: ${{ github.repository }}
-          repository: 'https://github.com/kyma-project/lifecycle-manager.git'
+          repository: 'kyma-project/lifecycle-manager'
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
