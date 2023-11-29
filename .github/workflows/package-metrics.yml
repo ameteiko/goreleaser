@@ -33,8 +33,8 @@ jobs:
           chmod a+x $spm
           chmod a+x $compare
       - name: Install dependencies
-          run: |
-            if [ -f scripts/requirements.txt ]; then pip install -r scripts/requirements.txt; fi
+        run: |
+          if [ -f scripts/requirements.txt ]; then pip install -r scripts/requirements.txt; fi
       - name: Genarate a report
         run: |
           $spm --path ${{ github.workspace }} --module github.com/ameteiko/goreleaser --out $base
