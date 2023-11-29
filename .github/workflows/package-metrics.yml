@@ -24,9 +24,6 @@ jobs:
     steps:
       - name: Check out LM source code
         uses: actions/checkout@v4
-      - name: Create a scripts directory
-        run: |
-          mkdir $scripts_path
       - name: Check out report scripts
         uses: actions/checkout@v4
         with:
