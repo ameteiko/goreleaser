@@ -23,11 +23,13 @@ jobs:
     steps:
       - name: Check out LM source code
         uses: actions/checkout@v4
-      - name: Check out report highlighter
+      - name: Check out report scripts
         uses: actions/checkout@v4
         with:
-          repository: ameteiko/impetus_core/scripts
+          repository: ameteiko/impetus_core
           path: scripts
+          sparse-checkout: |
+            scripts
       - name: Prepare the highlighter utility
         run: |
           chmod a+x $spm
