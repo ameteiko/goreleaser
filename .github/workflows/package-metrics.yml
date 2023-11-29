@@ -13,7 +13,7 @@ env:
   glossaryURL: https://github.com/kyma-project/lifecycle-manager/wiki/Glossary.md
   # The report highlighter utility that is checked out from the
   # https://github.com/kyma-project/qa-toolkit/blob/main/coverage-metrics/bin/utils/report-highlighter/highlighter.py
-  scripts_path: ${{ github.workspace }}/.scripts
+  scripts_path: ${{ github.workspace }}/.scripts/scripts
   spm: $scripts_path/spm.py
   compare: $scripts_path/compare.py
   base: /tmp/base.json
