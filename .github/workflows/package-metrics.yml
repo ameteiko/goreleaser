@@ -17,6 +17,7 @@ env:
   compare: ${{ github.workspace }}/.scripts/scripts/compare.py
   pip_requirements: ${{ github.workspace }}/.scripts/scripts/requirements.txt
   base: /tmp/base.json
+  target: /tmp/target.json
 
 jobs:
   generate-report:
