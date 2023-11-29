@@ -26,9 +26,9 @@ jobs:
         uses: actions/checkout@v4
       - name: Check out base LM source code
         uses: actions/checkout@v4
-          with:
-            ref: "${{ github.ref }}"
-            path: .base/
+        with:
+          ref: "${{ github.ref }}"
+          path: .base/
       - name: Check out report scripts
         uses: actions/checkout@v4
         with:
