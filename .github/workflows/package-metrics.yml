@@ -49,4 +49,7 @@ jobs:
         run: |
           $spm --path ${{ github.workspace }} --module github.com/ameteiko/goreleaser --out $target
           $spm --path ${{ github.workspace }}/.base --module github.com/ameteiko/goreleaser --out $base
+          cat $base
+          echo "____"
+          cat $target
           $compare --base $base --target $target
