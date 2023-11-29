@@ -1,1 +1,5 @@
 package int
+
+func init() {
+
+}
