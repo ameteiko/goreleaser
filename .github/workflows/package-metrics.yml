@@ -15,6 +15,7 @@ env:
   # https://github.com/kyma-project/qa-toolkit/blob/main/coverage-metrics/bin/utils/report-highlighter/highlighter.py
   spm: ${{ github.workspace }}/.scripts/scripts/spm.py
   compare: ${{ github.workspace }}/.scripts/scripts/compare.py
+  pip_requirements: ${{ github.workspace }}/.scripts/scripts/requirements.txt
   base: /tmp/base.json
 
 jobs:
@@ -36,7 +37,7 @@ jobs:
           chmod a+x $compare
       - name: Install dependencies
         run: |
-          if [ -f scripts/requirements.txt ]; then pip install -r scripts/requirements.txt; fi
+          if [ -f $pip_requirements ]; then pip install -r $pip_requirements fi
       - name: Genarate a report
         run: |
           $spm --path ${{ github.workspace }} --module github.com/ameteiko/goreleaser --out $base
