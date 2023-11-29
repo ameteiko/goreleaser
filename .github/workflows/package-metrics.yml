@@ -33,9 +33,6 @@ jobs:
             scripts
       - name: Prepare the highlighter utility
         run: |
-          ls -la ${{ github.workspace }}
-          echo "!@#!@#"
-          ls -la $scripts_path/scripts
           chmod a+x $spm
           chmod a+x $compare
       - name: Install dependencies
