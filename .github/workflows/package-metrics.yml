@@ -15,7 +15,7 @@ env:
   # https://github.com/kyma-project/qa-toolkit/blob/main/coverage-metrics/bin/utils/report-highlighter/highlighter.py
   scripts_path: /tmp/scripts
   spm: /tmp/scripts/spm.py
-  compare: /tmp/scripts/compare.py
+  compare: /tmp/scripts/scripts/compare.py
   base: /tmp/base.json
 
 jobs:
@@ -32,8 +32,6 @@ jobs:
         with:
           repository: ameteiko/impetus_core
           path: $scripts_path
-          sparse-checkout: |
-            scripts
       - name: Prepare the highlighter utility
         run: |
           chmod a+x $spm
