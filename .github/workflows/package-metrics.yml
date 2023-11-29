@@ -36,9 +36,9 @@ jobs:
             scripts
       - name: Prepare the highlighter utility
         run: |
-          ls $scripts_path
+          ls /tmp/scripts
           echo "!@#!@#"
-          ls $scripts_path/scripts
+          ls /tmp/scripts/scripts
           chmod a+x $spm
           chmod a+x $compare
       - name: Install dependencies
