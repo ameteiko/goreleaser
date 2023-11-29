@@ -13,9 +13,9 @@ env:
   glossaryURL: https://github.com/kyma-project/lifecycle-manager/wiki/Glossary.md
   # The report highlighter utility that is checked out from the
   # https://github.com/kyma-project/qa-toolkit/blob/main/coverage-metrics/bin/utils/report-highlighter/highlighter.py
-  scripts_path: /tmp/scripts
-  spm: /tmp/scripts/scripts/spm.py
-  compare: /tmp/scripts/scripts/compare.py
+  scripts_path: ${{ github.workspace }}/.scripts/scripts
+  spm: $scripts_path/spm.py
+  compare: $scripts_path/compare.py
   base: /tmp/base.json
 
 jobs:
@@ -31,7 +31,9 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: ameteiko/impetus_core
-          path: $scripts_path
+          path: .scripts
+          sparse-checkout: |
+            scripts
       - name: Prepare the highlighter utility
         run: |
           chmod a+x $spm
