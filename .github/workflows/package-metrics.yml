@@ -37,6 +37,7 @@ jobs:
           chmod a+x $compare
       - name: Install dependencies
         run: |
+          python -m pip install --upgrade pip
           if [ -f $pip_requirements ]; then pip install -r $pip_requirements fi
       - name: Genarate a report
         run: |
