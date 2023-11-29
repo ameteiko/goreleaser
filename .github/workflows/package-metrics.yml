@@ -29,7 +29,7 @@ jobs:
           repository: ameteiko/impetus_core
           path: scripts
           sparse-checkout: |
-            scripts
+            scripts/*
       - name: Prepare the highlighter utility
         run: |
           ls ${{ github.workspace }}
