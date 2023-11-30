@@ -10,10 +10,9 @@ on:
       - synchronize
 
 env:
-  scripts_path: ${{ github.workspace }}/scripts/coverage-metrics/bin/utils/package-metrics
-  spm: $scripts_path/spm.py
-  compare: $scripts_path/compare.py
-  pip_requirements: $scripts_path/requirements.txt
+  spm: ${{ github.workspace }}/scripts/coverage-metrics/bin/utils/package-metrics/spm.py
+  compare: ${{ github.workspace }}/scripts/coverage-metrics/bin/utils/package-metrics/compare.py
+  pip_requirements: ${{ github.workspace }}/scripts/coverage-metrics/bin/utils/package-metrics/requirements.txt
   base: /tmp/base.json
   target: /tmp/target.json
 
@@ -49,6 +48,6 @@ jobs:
           pip install -r $pip_requirements
       - name: Genarate a report
         run: |
-          $spm --path ${{ github.workspace }} --module github.com/ameteiko/goreleaser --out $target
-          $spm --path ${{ github.workspace }}/.base --module github.com/ameteiko/goreleaser --out $base
+          $spm --path ${{ github.workspace }}/target --module github.com/ameteiko/goreleaser --out $target
+          $spm --path ${{ github.workspace }}/base --module github.com/ameteiko/goreleaser --out $base
           $compare --base $base --target $target
