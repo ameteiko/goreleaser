@@ -25,13 +25,13 @@ jobs:
     steps:
       - name: Check out LM source code
         uses: actions/checkout@v4
-#      - name: Check out base LM source code
-#        uses: actions/checkout@v4
-#        with:
-#          ref: ${{ github.base_ref }}
-#          path: .base/
+      - name: Check out base LM source code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.base_ref }}
+          path: .base/
       - name: Check out report scripts
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
         with:
           repository: ameteiko/impetus_core
           path: .scripts/
@@ -48,7 +48,7 @@ jobs:
       - name: Genarate a report
         run: |
           $spm --path ${{ github.workspace }} --module github.com/ameteiko/goreleaser --out $target
-          $spm --path ${{ github.workspace }} --module github.com/ameteiko/goreleaser --out $base
+          $spm --path ${{ github.workspace }}/.base --module github.com/ameteiko/goreleaser --out $base
           echo "__ HEAD __"
           git rev-parse HEAD
           echo "____"
