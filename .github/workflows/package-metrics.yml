@@ -10,9 +10,10 @@ on:
       - synchronize
 
 env:
-  spm: ${{ github.workspace }}/.scripts/scripts/spm.py
-  compare: ${{ github.workspace }}/.scripts/scripts/compare.py
-  pip_requirements: ${{ github.workspace }}/.scripts/scripts/requirements.txt
+  scripts_path: ${{ github.workspace }}/scripts/coverage-metrics/bin/utils/package-metrics
+  spm: $scripts_path/spm.py
+  compare: $scripts_path/compare.py
+  pip_requirements: $scripts_path/requirements.txt
   base: /tmp/base.json
   target: /tmp/target.json
 
@@ -24,19 +25,17 @@ jobs:
         uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
-          path: target/
+          path: target
       - name: Check out the base branch
         uses: actions/checkout@v4
         with:
           ref: ${{ github.base_ref }}
-          path: base/
+          path: base
       - name: Check out report scripts
         uses: actions/checkout@v4
         with:
           repository: ameteiko/impetus_core
-          path: scripts/
-          sparse-checkout: |
-            coverage-metrics/bin/utils/package-metrics
+          path: scripts
       - name: Prepare the highlighter utility
         run: |
           ls ${{ github.workspace }}/scripts
