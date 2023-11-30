@@ -49,6 +49,8 @@ jobs:
         run: |
           $spm --path ${{ github.workspace }} --module github.com/ameteiko/goreleaser --out $target
           $spm --path ${{ github.workspace }}/.base --module github.com/ameteiko/goreleaser --out $base
+          ls ${{ github.workspace }}/docs/api
+          echo "____"
           ls ${{ github.workspace }}/internal
           echo "____"
           ls ${{ github.workspace }}/.base/internal
