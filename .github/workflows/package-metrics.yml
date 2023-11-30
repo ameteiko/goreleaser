@@ -10,9 +10,6 @@ on:
       - synchronize
 
 env:
-  glossaryURL: https://github.com/kyma-project/lifecycle-manager/wiki/Glossary.md
-  # The report highlighter utility that is checked out from the
-  # https://github.com/kyma-project/qa-toolkit/blob/main/coverage-metrics/bin/utils/report-highlighter/highlighter.py
   spm: ${{ github.workspace }}/.scripts/scripts/spm.py
   compare: ${{ github.workspace }}/.scripts/scripts/compare.py
   pip_requirements: ${{ github.workspace }}/.scripts/scripts/requirements.txt
@@ -23,24 +20,28 @@ jobs:
   generate-report:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out LM source code
+      - name: Check out the target branch
         uses: actions/checkout@v4
         with:
           ref: ${{ github.head_ref }}
-      - name: Check out base LM source code
+          path: target/
+      - name: Check out the base branch
         uses: actions/checkout@v4
         with:
           ref: ${{ github.base_ref }}
-          path: .base/
+          path: base/
       - name: Check out report scripts
         uses: actions/checkout@v4
         with:
           repository: ameteiko/impetus_core
-          path: .scripts/
+          path: scripts/
           sparse-checkout: |
-            scripts
+            coverage-metrics/bin/utils/package-metrics
       - name: Prepare the highlighter utility
         run: |
+          ls ${{ github.workspace }}/scripts
+          ls ${{ github.workspace }}/base
+          ls ${{ github.workspace }}/target
           chmod a+x $spm
           chmod a+x $compare
       - name: Install dependencies
@@ -51,16 +52,4 @@ jobs:
         run: |
           $spm --path ${{ github.workspace }} --module github.com/ameteiko/goreleaser --out $target
           $spm --path ${{ github.workspace }}/.base --module github.com/ameteiko/goreleaser --out $base
-          echo "__ HEAD __"
-          echo ${{ github.head_ref }}
-          git rev-parse HEAD
-          echo "____"
-          ls ${{ github.workspace }}/docs/api
-          echo "____"
-          ls ${{ github.workspace }}/internal
-          echo "____"
-          ls ${{ github.workspace }}/.base/internal
-          cat $base
-          echo "____"
-          cat $target
           $compare --base $base --target $target
