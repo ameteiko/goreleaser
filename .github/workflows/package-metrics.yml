@@ -1,4 +1,4 @@
-name: Report Package Metrics
+name: Report Package Dependencies Metrics
 run-name: Generate package dependencies report
 
 on:
@@ -23,7 +23,9 @@ jobs:
       - name: Check out the target branch
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.head_ref }}
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
           path: target
       - name: Check out the base branch
         uses: actions/checkout@v4
@@ -33,7 +35,7 @@ jobs:
       - name: Check out report scripts
         uses: actions/checkout@v4
         with:
-          repository: ameteiko/impetus_core
+          repository: kyma-project/qa-toolkit
           path: scripts
       - name: Adjust the metrics utilities
         run: |
@@ -43,6 +45,6 @@ jobs:
           pip install -r $pip_requirements
       - name: Genarate a report
         run: |
-          $spm --module github.com/ameteiko/goreleaser --path ${{ github.workspace }}/target --out $target_metrics
-          $spm --module github.com/ameteiko/goreleaser --path ${{ github.workspace }}/base --out $base_metrics
+          $spm --module github.com/kyma-project/lifecycle-manager --path ${{ github.workspace }}/target --out $target_metrics
+          $spm --module github.com/kyma-project/lifecycle-manager --path ${{ github.workspace }}/base --out $base_metrics
           $compare --base $base_metrics --target $target_metrics
