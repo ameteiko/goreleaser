@@ -24,4 +24,4 @@ jobs:
           pip install -r $pip_requirements
       - name: Genarate a report
         run: |
-          $reporter --repo github.com/kyma-project/lifecycle-manager --days 14 --e2e-path tests/
+          $reporter --repo https://github.com/kyma-project/lifecycle-manager.git --days 14 --e2e-path tests/
