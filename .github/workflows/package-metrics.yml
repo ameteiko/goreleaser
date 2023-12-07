@@ -1,50 +1,27 @@
-name: Report Package Dependencies Metrics
-run-name: Generate package dependencies report
+name: Report Sprint Commits Test Suites
+run-name: Generate a report for sprint commits
 
-on:
-  pull_request_target:
-    types:
-      - opened
-      - reopened
-      - edited
-      - synchronize
+# The report generation is performed ad hoc via manual invocation.
+on: workflow_dispatch
 
 env:
-  spm: ${{ github.workspace }}/scripts/coverage-metrics/bin/utils/package-metrics/spm.py
-  compare: ${{ github.workspace }}/scripts/coverage-metrics/bin/utils/package-metrics/compare.py
-  pip_requirements: ${{ github.workspace }}/scripts/coverage-metrics/bin/utils/package-metrics/requirements.txt
-  base_metrics: /tmp/base.json
-  target_metrics: /tmp/target.json
+  reporter: ${{ github.workspace }}/scripts/coverage-metrics/bin/utils/commit-test-suites/gauge-sprint-commits.py
+  pip_requirements: ${{ github.workspace }}/scripts/coverage-metrics/bin/utils/commit-test-suites/requirements.txt
 
 jobs:
   generate-report:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out the target branch
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          ref: ${{ github.event.pull_request.head.ref }}
-          repository: ${{ github.event.pull_request.head.repo.full_name }}
-          path: target
-      - name: Check out the base branch
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ github.base_ref }}
-          path: base
       - name: Check out report scripts
         uses: actions/checkout@v4
         with:
-          repository: kyma-project/qa-toolkit
+          repository: ameteiko/impetus_core
           path: scripts
       - name: Adjust the metrics utilities
         run: |
-          chmod a+x $spm
-          chmod a+x $compare
+          chmod a+x $reporter
           python -m pip install --upgrade pip
           pip install -r $pip_requirements
       - name: Genarate a report
         run: |
-          $spm --module github.com/kyma-project/lifecycle-manager --path ${{ github.workspace }}/target --out $target_metrics
-          $spm --module github.com/kyma-project/lifecycle-manager --path ${{ github.workspace }}/base --out $base_metrics
-          $compare --base $base_metrics --target $target_metrics
+          $reporter --repo github.com/kyma-project/lifecycle-manager --days 14 --e2e-path tests/
