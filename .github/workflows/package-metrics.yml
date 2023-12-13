@@ -33,7 +33,7 @@ jobs:
           pip install -r $pip_requirements
       - name: create aconfig
         run: |
-           echo -e "packages:\n  internal: 60\n  pkg/remote: 1\n  pkg/security: 10" > ${{ github.workspace }}/base/config.yaml
+           echo -e "packages:\n  internal: 60\n  pkg/remote: 50\n  pkg/security: 10" > ${{ github.workspace }}/base/config.yaml
            cat ${{ github.workspace }}/base/config.yaml
       - name: Genarate a report
         run: |
