@@ -24,7 +24,7 @@ jobs:
           path: base
       - name: Adjust the metrics utilities
         run: |
-          chmod a+x $reporter
+          chmod a+x $guard
           python -m pip install --upgrade pip
           pip install -r $pip_requirements
       - name: create aconfig
