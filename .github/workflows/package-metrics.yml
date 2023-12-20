@@ -1,12 +1,12 @@
-name: Assure Unit Test Coverage
-run-name: Assure the unit test coverage quality gate
+name: Report Sprint Test Suites
+run-name: A report for sprint commits
 
 # The report generation is performed ad hoc via manual invocation.
 on: workflow_dispatch
 
 env:
-  guard: ${{ github.workspace }}/scripts/coverage-metrics/bin/utils/unit-test-coverage/coverage_guard.py
-  pip_requirements: ${{ github.workspace }}/scripts/coverage-metrics/bin/utils/unit-test-coverage/requirements.txt
+  reporter: ${{ github.workspace }}/scripts/coverage-metrics/bin/utils/commit-test-suites/gauge-sprint-commits.py
+  pip_requirements: ${{ github.workspace }}/scripts/coverage-metrics/bin/utils/commit-test-suites/requirements.txt
 
 jobs:
   generate-report:
@@ -15,26 +15,13 @@ jobs:
       - name: Check out report scripts
         uses: actions/checkout@v4
         with:
-          repository: ameteiko/impetus_core
+          repository: ameteiko/impetus-core
           path: scripts
-      - name: Check out the sourcecode
-        uses: actions/checkout@v4
-        with:
-          repository: kyma-project/lifecycle-manager
-          path: base
-      - name: Set up Go
-        uses: actions/setup-go@v4
-        with:
-          go-version: '1.21'
-      - name: Adjust the metrics utilities
+      - name: Adjust the report scripts
         run: |
-          chmod a+x $guard
+          chmod a+x $reporter
           python -m pip install --upgrade pip
           pip install -r $pip_requirements
-      - name: create aconfig
-        run: |
-           echo -e "packages:\n  internal: 60\n  pkg/remote: 50\n  pkg/security: 10" > ${{ github.workspace }}/base/config.yaml
-           cat ${{ github.workspace }}/base/config.yaml
       - name: Genarate a report
         run: |
-          $guard --repo ${{ github.workspace }}/base --module github.com/kyma-project/lifecycle-manager
+          $reporter --repo-url https://github.com/kyma-project/lifecycle-manager.git --days 14 --e2e tests/e2e --integration tests/integration
