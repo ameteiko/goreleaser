@@ -15,7 +15,7 @@ jobs:
       - name: Check out report scripts
         uses: actions/checkout@v4
         with:
-          repository: ameteiko/impetus-core
+          repository: ameteiko/impetus_core
           path: scripts
       - name: Adjust the report scripts
         run: |
