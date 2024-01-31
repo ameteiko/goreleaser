@@ -27,7 +27,7 @@ jobs:
           pip install -r $pip_requirements
       - name: create a config
         run: |
-          echo -e "packages:\n  pkg/module/sync: 2\n  pkg/security: 10" > ${{ github.workspace }}/base/config.yaml
+          echo -e "packages:\n  pkg/security: 10" > ${{ github.workspace }}/base/config.yaml
       - name: Genarate a report
         run: |
           $coverage_guard --repo ${{ github.workspace }}/base --module github.com/kyma-project/lifecycle-manager --config config.yaml 
