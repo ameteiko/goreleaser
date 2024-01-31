@@ -30,4 +30,4 @@ jobs:
           echo "packages:\n  internal: 60\n  pkg/remote: 1\n  pkg/security: 10" > ${{ github.workspace }}/base/config.yaml
       - name: Genarate a report
         run: |
-          $guard --repo ${{ github.workspace }}/base --module github.com/kyma-project/lifecycle-manager
+          $coverage_guard --repo ${{ github.workspace }}/base --module github.com/kyma-project/lifecycle-manager
