@@ -23,7 +23,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v4
         with:
-          go-version: '1.21.1' 
+          go-version-file: ${{ github.workspace }}/base/go.mod
       - name: Adjust the metrics utilities
         run: |
           chmod a+x $coverage_guard
